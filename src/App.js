@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Tweet from '../src/Tweet'
+import { render } from '@testing-library/react';
+
+function App(){
+
+  const [isRed, setRed] = useState(false);
+  const [count, setCount] = useState(0);
+
+  const increment = () =>{
+    setCount(count + 1);
+    setRed(!isRed); //everytime you activate the increment function, you set the isRed to its opposite
+  }
+
+
+return(
+
+  <div className="app"> 
+  
+    <Tweet name="Bruno" message="this is a tweet by Brunp"/>
+    <Tweet name="Lev"  message="this is a tweet by Lev"/>
+    <Tweet name="Farron"  message="this is a tweet by Farron"/>
+    <Tweet name="Acollat"  message="this is a tweet by Acollat"/>
+   
+  </div>
+
+  
+);
+
+
 }
 
-export default App;
+export default App
